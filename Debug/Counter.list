@@ -2758,15 +2758,15 @@ HAL_StatusTypeDef HAL_TIMEx_MasterConfigSynchronization(TIM_HandleTypeDef *htim,
  8000e86:	4c1b      	ldr	r4, [pc, #108]	; (8000ef4 <main+0xc4>)
  8000e88:	05db      	lsls	r3, r3, #23
  8000e8a:	6023      	str	r3, [r4, #0]
-  htim2.Init.Period = 3;
- 8000e8c:	2303      	movs	r3, #3
+  htim2.Init.Period = 5;
+ 8000e8c:	2305      	movs	r3, #5
   if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
  8000e8e:	0020      	movs	r0, r4
   htim2.Init.Prescaler = 0;
  8000e90:	6065      	str	r5, [r4, #4]
   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
  8000e92:	60a5      	str	r5, [r4, #8]
-  htim2.Init.Period = 3;
+  htim2.Init.Period = 5;
  8000e94:	60e3      	str	r3, [r4, #12]
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
  8000e96:	6125      	str	r5, [r4, #16]
