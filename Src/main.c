@@ -60,7 +60,7 @@ static void MX_TIM2_Init(void);
 /* Private function prototypes -----------------------------------------------*/
 
 /* USER CODE END PFP */
-volatile long count = 0;
+volatile count = 0;
 /* USER CODE BEGIN 0 */
 
 /* USER CODE END 0 */
@@ -96,17 +96,17 @@ int main(void)
   MX_GPIO_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
-
+HAL_TIM_Base_Start_IT(&htim2);
   /* USER CODE END 2 */
-HAL_TIM_Base_Start(&htim2);
+
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	count = __HAL_TIM_GET_COUNTER(&htim2);
-  /* USER CODE END WHILE */
-HAL_Delay(1000);
-  /* USER CODE BEGIN 3 */
+	  count = __HAL_TIM_GET_COUNTER(&htim2);
+	  /* USER CODE END WHILE */
+	  HAL_Delay(1000);
+	  /* USER CODE BEGIN 3 */
 
   }
   /* USER CODE END 3 */
@@ -172,7 +172,7 @@ static void MX_TIM2_Init(void)
   htim2.Instance = TIM2;
   htim2.Init.Prescaler = 0;
   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim2.Init.Period = 1000;
+  htim2.Init.Period = 3;
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
